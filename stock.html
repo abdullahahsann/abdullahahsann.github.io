@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome file</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+    <div class="stackedit__html">
+        <h1 id="using-lstm-to-predict-stock-market-prices-for-aapl-stock">Using LSTM to predict stock market prices for
+            AAPL stock</h1>
+        <p>Link to Github Repo: <a
+                href="https://github.com/abdullahahsann/AAPL-Stock-Prediction-Using-LSTM" target="_blank">https://github.com/abdullahahsann/AAPL-Stock-Prediction-Using-LSTM</a>
+        </p>
+        <p>So this was just a testing project that i did to test out LSTM.</p>
+        <p>The data used is real though and is downlaoded from: <a
+                href="https://finance.yahoo.com/quote/AAPL/history?p=AAPL">https://finance.yahoo.com/quote/AAPL/history?p=AAPL</a>.
+        </p>
+        <p>The data is from 2017-09-20 to 2022-09-15.</p>
+        <p>First i downloaded the data as csv file from the link shared above. Then i used pandas to read the csv file.
+        </p>
+        <p><img src="https://user-images.githubusercontent.com/62840383/191893629-cd9c11f9-ced1-4997-9aa8-5b9793e1b127.png"
+                alt="dataload"></p>
+        <p>Using matplotlib i plotted the data to see how it looks like. As it can be seen the stocks price are
+            increasing over time.</p>
+        <p><img src="https://user-images.githubusercontent.com/62840383/191893635-18472c6e-a539-4a61-9963-6cabd6947442.png"
+                alt="data_visual"></p>
+        <p>That is going to be enough for training our model.Zooming in on just the last data points give us a more
+            clear picture of how the data looks like.</p>
+        <p><img src="https://user-images.githubusercontent.com/62840383/191893642-62b02b3b-db53-4632-b6c2-bd1c0d7c591a.png"
+                alt="last20data"></p>
+        <p>As we are dealing with stock market data. It’s best to convert the graph into a candlestick graph.</p>
+        <p>A candlestick has four main components (open, close, high &amp; low price) for a given time period, usually
+            within a day. The color (usually green) indicates that the security closed higher than it opened, while the
+            other color (usually red) indicates that the security closed lower than it opened.</p>
+        <p>For that i used potly library.</p>
+        <p><img src="https://user-images.githubusercontent.com/62840383/191893661-c1629bf2-74bf-47af-b7fb-f0e029770401.png"
+                alt="candle1"></p>
+        <p>Candlestick with moving averages of 30 and 50 peroiods…</p>
+        <p><img src="https://user-images.githubusercontent.com/62840383/191893665-87b0154d-c3ae-4e3a-badb-814936bdade8.png"
+                alt="candle2"></p>
+        <p>This is the LSTM model. Quite a straighforward one but one that will get the job done.</p>
+        <p><img src="https://user-images.githubusercontent.com/62840383/191893681-8373e0fd-ae90-4a70-ab9a-7defc94bbeaf.png"
+                alt="model"></p>
+        <p>After all the data preprocessing and model training we get the following results.</p>
+        <p>(The model was trained for 10 epochs and acheived a RMSE of 1.788)</p>
+        <p><img src="https://user-images.githubusercontent.com/62840383/191893697-f1663c9d-dcaa-4b5d-adb2-0ab396dd846d.png"
+                alt="results"></p>
+        <p>Quite a good result i would say for just being trained for 10 epochs.</p>
+        <p>Below a numerical comparison of the predicted and actual values shows that though in he world of stock market
+            predictions, the model is not perfect (as even a difference of some cents can cost a lot, and here the model
+            does deviate by a dollar at most places while even by 5 at others) but still as we can see by the graph if
+            we were to use it to generate a future prediction it would very well give quite a good trend and that to me
+            is quite mesemerizing.</p>
+        <p><img src="https://user-images.githubusercontent.com/62840383/191893704-7193df03-d168-4d8b-a3fb-b213e298fcac.png"
+                alt="nresults"></p>
+    </div>
+</body>
+
+</html>
